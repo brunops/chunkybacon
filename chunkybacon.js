@@ -18,12 +18,15 @@ var CB = (function() {
         return [];
       }
 
+      // clone arr (superficial)
+      var new_arr = arr.slice(0);
+
       if (typeof initial === 'undefined') {
-        initial = arr.shift();
+        initial = new_arr.shift();
       }
 
       var total = initial;
-      this.each(arr, function(e) {
+      this.each(new_arr, function(e) {
         total = callback(e, total);
       });
 
