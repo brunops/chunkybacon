@@ -11,6 +11,23 @@ var CB = (function() {
         arr[i] = callback(e, i);
       });
       return arr;
+    },
+
+    inject: function(arr, callback, initial) {
+      if (!arr.length) {
+        return [];
+      }
+
+      if (typeof initial === 'undefined') {
+        initial = arr.shift();
+      }
+
+      var total = initial;
+      this.each(arr, function(e) {
+        total = callback(e, total);
+      });
+
+      return total;
     }
   };
 })();
