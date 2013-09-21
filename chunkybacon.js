@@ -1,9 +1,15 @@
 var CB = (function() {
   return {
     each: function(arr, callback) {
-      for (var i = 0; i < arr.length; ++i) {
-        arr[i] = callback(arr[i]);
+      for (var i = 0; i < arr.length; i++) {
+        callback(arr[i], i);
       }
+    },
+
+    map: function(arr, callback) {
+      CB.each(arr, function(e, i) {
+        arr[i] = callback(e, i);
+      });
       return arr;
     }
   };
