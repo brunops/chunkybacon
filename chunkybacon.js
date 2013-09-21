@@ -7,10 +7,12 @@ var CB = (function() {
     },
 
     map: function(arr, callback) {
-      CB.each(arr, function(e, i) {
-        arr[i] = callback(e, i);
+      var new_arr = [];
+      this.each(arr, function(e) {
+        new_arr.push(callback(e));
       });
-      return arr;
+
+      return new_arr;
     },
 
     inject: function(arr, callback, initial) {
@@ -34,3 +36,4 @@ var CB = (function() {
     }
   };
 })();
+
