@@ -33,6 +33,18 @@ var CB = (function() {
       });
 
       return total;
+    },
+
+    select: function(arr, conditionalCallback) {
+      var new_arr = [];
+
+      this.each(arr, function(e) {
+        if (!!conditionalCallback(e)) {
+          new_arr.push(e);
+        }
+      });
+
+      return new_arr;
     }
   };
 })();
