@@ -35,6 +35,15 @@ var CB = (function() {
       return total;
     },
 
+    reverse: function(arr) {
+      var new_arr = []
+      this.each(arr, function(e) {
+        new_arr.unshift(e);
+      });
+
+      return new_arr;
+    },
+
     select: function(arr, conditionalCallback) {
       var new_arr = [];
 
