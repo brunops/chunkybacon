@@ -54,6 +54,10 @@ var CB = (function() {
       });
 
       return new_arr;
+    },
+
+    take: function(arr, num) {
+      return arr.slice(arr.length - num, arr.length);
     }
   };
 })();
